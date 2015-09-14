@@ -1,0 +1,21 @@
+[13-Jul-2015 14:09:04 America/Chicago] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home3/dandep07/public_html/index.php on line 50
+[13-Jul-2015 14:09:26 America/Chicago] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home3/dandep07/public_html/index.php on line 50
+[13-Jul-2015 14:09:27 America/Chicago] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home3/dandep07/public_html/index.php on line 50
+[13-Jul-2015 14:22:43 America/Chicago] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home3/dandep07/public_html/artisan on line 31
+[14-Jul-2015 13:52:37 America/Chicago] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home3/dandep07/public_html/artisan on line 31
+[14-Jul-2015 14:18:52 America/Chicago] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home3/dandep07/public_html/artisan on line 31
+[14-Jul-2015 19:21:04 UTC] PHP Fatal error:  Cannot redeclare class CreateUsersTable in /home3/dandep07/public_html/database/migrations/2015_07_14_185418_create_users_table.php on line 44
+[14-Jul-2015 20:10:52 UTC] PHP Fatal error:  Cannot redeclare class CreateUsersTable in /home3/dandep07/public_html/database/migrations/2015_07_14_185418_create_users_table.php on line 100
+[16-Jul-2015 17:37:21 UTC] PHP Parse error:  syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM) in /home3/dandep07/public_html/database/seeds/DatabaseSeeder.php on line 17
+[16-Jul-2015 17:48:31 UTC] PHP Fatal error:  Class 'User' not found in /home3/dandep07/public_html/database/seeds/DatabaseSeeder.php on line 28
+[16-Jul-2015 18:08:30 UTC] PHP Parse error:  syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM) in /home3/dandep07/public_html/database/seeds/DatabaseSeeder.php on line 17
+[16-Jul-2015 18:14:51 UTC] PHP Fatal error:  Class 'Seeder' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 3
+[16-Jul-2015 18:15:27 UTC] PHP Fatal error:  Class 'User' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 11
+[16-Jul-2015 18:15:48 UTC] PHP Fatal error:  Class 'Legend\User' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 12
+[16-Jul-2015 18:19:52 UTC] PHP Fatal error:  Class 'User' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 11
+[16-Jul-2015 18:21:26 UTC] PHP Fatal error:  Class 'User' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 11
+[16-Jul-2015 18:25:05 UTC] PHP Fatal error:  Class 'app\User' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 12
+[16-Jul-2015 18:25:51 UTC] PHP Fatal error:  Class 'User' not found in /home3/dandep07/public_html/database/seeds/UserTableSeeder.php on line 11
+[20-Jul-2015 18:18:22 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home3/dandep07/public_html/app/Http/Controllers/WelcomeController.php on line 2
+[20-Jul-2015 18:19:38 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home3/dandep07/public_html/app/Http/Controllers/Controller.php on line 14
+[20-Jul-2015 18:21:57 UTC] PHP Fatal error:  Class 'Controller' not found in /home3/dandep07/public_html/app/Http/Controllers/WelcomeController.php on line 3
