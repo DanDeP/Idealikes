@@ -5,9 +5,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-
+    <link href="{{URL::asset("css/app.css")}}" rel="stylesheet" />
 </head>
 <body>
+
+    @include('partials.nav')
 
 <div class="container">
     @include('partials.flash')
