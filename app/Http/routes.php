@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
+
 //Manual way to do routes, users.
 /*Route::get('contact','PagesController@contact');
 Route::get('about','PagesController@about');
@@ -42,3 +50,5 @@ Route::controllers([
 
 // route to process the form
 //Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+Route::get('tags/{tags}', 'TagsController@show');
