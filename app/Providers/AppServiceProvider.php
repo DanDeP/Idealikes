@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
             //$tags = Tag::all()->get();
 
             $view->with('latest', Ideas::latest()->first())
-                ->with('categories', Tag::orderBy('name')->get());
+                 ->with('categories', Tag::orderBy('name')->get());
         });
     }
 
