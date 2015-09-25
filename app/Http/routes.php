@@ -24,9 +24,9 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 //Manual way to do routes, users.
-/*Route::get('contact','PagesController@contact');
 Route::get('about','PagesController@about');
 Route::get('users','UsersController@index');
+/*Route::get('contact','PagesController@contact');
 Route::get('users/create','UsersController@create');
 Route::get('users/{id}','UsersController@show');
 Route::post('users','UsersController@store');*/
@@ -35,7 +35,7 @@ Route::resource('users','UsersController');
 
 //Idea routes
 /*Route::get('ideas','IdeasController@index');
-Route::get('ideas/create','IdeasController@create');
+Route::get('ideas/create','IdeasController@create');n
 Route::get('ideas/{id}','IdeasController@show');
 Route::post('ideas','IdeasController@store');*/
 
