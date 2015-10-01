@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-    <h1>Idea</h1>
+
+    <h1>Idea: {{$idea}}</h1>
     <hr>
     @foreach ($ideas as $idea)
         <article>
@@ -11,5 +12,8 @@
 
             <div class="idea">{{ $idea->idea }}</div>
         </article>
+
+        <button type="button">Like</button>  <button type="button">Dislike</button>
     @endforeach
 @stop
+
