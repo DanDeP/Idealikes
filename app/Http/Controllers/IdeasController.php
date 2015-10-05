@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\Users;
 use Carbon\Carbon;
 use App\Ideas;
 //use App\Http\Requests\Request;
 use Illuminate\Http\Request;
 use App\Http\Requests\IdeaRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class IdeasController extends Controller
 {
@@ -19,26 +22,43 @@ class IdeasController extends Controller
     public function __construct()
     {
         $this->middleware('auth',['only'=>'create']);
+
     }
 
-    public function index()
+    /*public function index()
     {
-        $ideas = Ideas::latest()->get();
-        return view('Ideas.index')->with('ideas',$ideas);
-    }
+//      $ideas = Ideas::latest()->get();
+        $unratedIdeas = Users::getUnratedIdea();
 
+        return view('Ideas.index')->with('unratedIdeas',$unratedIdeas);
+    }*/
+
+    /**
+     * Not used. shows the idea in a different page
+     * @param Ideas $idea
+     * @return $this
+     */
     public function show(Ideas $idea)
     {
         return view('Ideas.show')->with('ideas',$idea);
     }
 
+    /**
+     * create function is to upload a new idea using a form
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
-        $tags = Tag::lists('name', 'id'); //gives all items from the column 'name'
+        $tags = Tag::orderby('name')->lists('name', 'id'); //gives all items from the column 'name'
 
         return view('Ideas.create', compact('tags'));
     }
 
+    /**
+     * This saves a new idea in the database. Helper function of the create method
+     * @param IdeaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(IdeaRequest $request)
     {
 
@@ -56,28 +76,39 @@ class IdeasController extends Controller
         //\Session::flash('flash_message','Your idea has been submitted!');//could do these or, what it shows in the return
         //\Session::flash('flash_message_important',true);
 
-        return redirect('ideas')->with([ //with assumes flash message
+        return redirect('rate')->with([ //with assumes flash message
             'flash_message'=>'Your idea has been submitted!',
             //  'flash_message_important'=> true
         ]);
 
     }
 
+    /**
+     * Edit function is called to edit idea in a form
+     * @param Ideas $idea
+     * @return \Illuminate\View\View
+     */
     public function edit(Ideas $idea)
     {
-        $tags = Tag::lists('name', 'id'); //gives all items from the column 'name'
+        $tags = Tag::orderby('name')->lists('name', 'id'); //gives all items from the column 'name'
 
         //compact passes $idea to the view
         return view('Ideas.edit', compact('idea', 'tags'));
     }
 
+    /**
+     * Updates the database from an edit
+     * @param Ideas $idea
+     * @param IdeaRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Ideas $idea, IdeaRequest $request)
     {
         $idea->update($request->all());
 
         $this->syncTags($idea, $request->input('tag_list'));
 
-        return redirect('ideas');
+        return redirect('rate');
     }
 
     /**
@@ -91,5 +122,4 @@ class IdeasController extends Controller
     {
         $idea->tags()->sync($tags);
     }
-
 }
