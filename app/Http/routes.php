@@ -35,12 +35,16 @@ Route::resource('users','UsersController');
 
 //Idea routes
 /*Route::get('ideas','IdeasController@index');
-Route::get('ideas/create','IdeasController@create');n
+Route::get('ideas/create','IdeasController@create');
 Route::get('ideas/{id}','IdeasController@show');
 Route::post('ideas','IdeasController@store');*/
 
 Route::resource('ideas','IdeasController');
 
+Route::get('rate','LikesController@index');
+Route::post('rate','LikesController@rated');
+//Route::get('likes','LikesController@index');
+//Route::post('likes','LikesController@rated');
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
