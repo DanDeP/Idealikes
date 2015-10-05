@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ideas;
+use App\Likes;
 use App\Users;
 use Illuminate\Http\Request;
 
@@ -17,32 +18,37 @@ class LikesController extends Controller
 //      $ideas = Ideas::latest()->get();
         $unratedIdeas = Users::getUnratedIdea();
 
-        return view('Ideas.index')->with('unratedIdeas',$unratedIdeas);
+        if(empty($unratedIdeas)){
+            return view('Ideas.no_more_ideas');
+        }else{
+            return view('Ideas.index')->with('unratedIdeas',$unratedIdeas);
+        }
+
     }
 
     /**
-     *
+     * This function determines whether the user clicks like or dislike.
+     * It then calls a function in the likes model which inserts a record
+     * into the likes table
      * @param Ideas $idea
      * @return string
      */
     public function rated(Ideas $idea)
     {
-        //get the idea id and add to like table
-        //add the user id to the like table
-        //add one to like or dislike depending on which submit button was clicked
-        //return view (same as index method in this controlle   r)
-
         //Finds whether 'Like' or 'Dislike' was chosen
         $action = Input::get('action','none');
         //Gets userid
         $auth = \Auth::user()->id;
         $input = Input::get('idea_id');
-        if($action == 'Like'){
 
-            return 'hello '.$input;
-        }else{ //it's disliked
+        Likes::isRated($input,$auth,$action);
 
-            return 'nottest';
+        $unratedIdeas = Users::getUnratedIdea();
+
+        if(empty($unratedIdeas)){
+            return view('Ideas.no_more_ideas');
+        }else {
+            return view('Ideas.index')->with('unratedIdeas', $unratedIdeas);
         }
 
     }
