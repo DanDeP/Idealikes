@@ -25,7 +25,8 @@ class IdeaRequest extends Request
     {
         return [
             'ideaname'=>'required',
-            'idea'=>'required'
+            'idea'=>'required',
+            'tag_list'=>'required'
         ];
     }
 }
