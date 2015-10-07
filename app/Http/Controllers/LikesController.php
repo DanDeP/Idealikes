@@ -52,4 +52,15 @@ class LikesController extends Controller
         }
 
     }
+
+    public function myLikes(){
+        $likes = Likes::getLikes();
+        return view('Likes.index',compact('likes'));
+    }
+
+    public function likeContent($idea){
+        $likes = Likes::getLikes();
+        $ideaContent = Likes::getContent($idea);
+        return view('Likes.index',compact('likes','ideaContent'));
+    }
 }
