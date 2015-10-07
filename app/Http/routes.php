@@ -56,3 +56,5 @@ Route::controllers([
 //Route::post('login', array('uses' => 'HomeController@doLogin'));
 
 Route::get('tags/{tags}', 'TagsController@show');
+Route::get('likes', 'LikesController@myLikes');
+Route::get('likes/{id}','LikesController@likeContent');
