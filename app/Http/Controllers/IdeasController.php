@@ -25,13 +25,13 @@ class IdeasController extends Controller
 
     }
 
-    /*public function index()
+    public function index()
     {
 //      $ideas = Ideas::latest()->get();
         $unratedIdeas = Users::getUnratedIdea();
 
         return view('Ideas.index')->with('unratedIdeas',$unratedIdeas);
-    }*/
+    }
 
     /**
      * Not used. shows the idea in a different page
