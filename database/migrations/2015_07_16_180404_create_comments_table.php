@@ -16,8 +16,8 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
-			$table->integer('commented_idea')->unsigned();
-			$table->foreign('commented_idea')->references('id')->on('ideas');
+			$table->integer('commented_idea_id')->unsigned();
+			$table->foreign('commented_idea_id')->references('id')->on('ideas');
 			$table->string('comment', 750);
 			$table->date('dateuploaded');
             $table->timestamps();						
