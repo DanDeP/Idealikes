@@ -22,7 +22,7 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-    protected $redirectTo = '/ideas';
+    protected $redirectTo = '/rate';
     /**
      * Create a new authentication controller instance.
      *
