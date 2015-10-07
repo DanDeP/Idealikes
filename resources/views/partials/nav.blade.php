@@ -16,20 +16,20 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/ideas">Ideas</a></li>
-                <li><a href="/ideas">Likes</a></li>
+                <li class="active"><a href="/rate">Ideas</a></li>
+                <li><a href="/likes">Likes</a></li>
             </ul>
 
-            <ul class="nav navbar-nav">
+          <!--  <ul class="nav navbar-nav">      This will no longer be apart of the nav bar. Will need for the likes view
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Test <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        @foreach($categories as $category)
+                    {{--    @foreach($categories as $category)
                             <li><a href="/tags/{{$category->name}}">{{ $category->name }}</a></li>
-                        @endforeach
+                        @endforeach--}}
                     </ul>
                 </li>
-            </ul>
+            </ul>-->
 
             <ul class="nav navbar-nav navbar-right">
                     <li><a class="try"> Welcome  {!! Auth::user()->username !!}</a></li>
@@ -39,7 +39,7 @@
 
             </ul>
             <!--<ul class="nav navbar-nav navbar-right">
-                <li> {!! link_to_action('IdeasController@show', $latest->ideaname, [$latest->id]) !!}</li>
+                <li> {{--link_to_action('IdeasController@show', $latest->ideaname, [$latest->id])--}} </li>
             </ul>-->
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
