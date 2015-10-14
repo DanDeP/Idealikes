@@ -34,19 +34,31 @@
                     @endforeach
                 </ul>
             </div>
-            <div>
+            <div class="rightbar">
                 @if(isset($ideaContent))
                     <h1>Idea: {!!$ideaContent->ideaname!!}</h1>
 
                     <p>{!!$ideaContent->idea!!}</p>
-                    {!! Form::model(['method'=>'POST','action' => ['LikesController@rated']]) !!}
+                <hr/>
+                    {!! Form::model($ideaContent,['method'=>'POST','action' => ['CommentsController@addComments']]) !!}
+                    {!! Form::hidden('idea_id', $ideaContent->id) !!}
+
+                    @foreach($allComments as $comment)
+                        <p>{{$comment->comment}}</p>
+                    @endforeach
+
+
+                    {!! Form::textarea('comments', null, array('required' => 'required','size' => '80x5')   ) !!}
+                <br/>
+                    {!! Form::submit('Submit Comment',array('class' => 'btn btn-primary','name'=>'action')) !!}
                     {!! Form::close() !!}
                 @endif
 
             </div>
         </div>
         <div class="panel-footer">
-            Panel footer
+            <span>Views:{{$ideaView}}</span>
+            <span>All Time Likes:{{$allTimeLikes}}</span>
         </div>
     </div>
 @stop
