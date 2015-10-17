@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MyIdeas extends Controller
+class MyIdeasController extends Controller
 {
     //
 }
