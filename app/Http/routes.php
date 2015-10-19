@@ -11,8 +11,10 @@
 |https://laracasts.com/series/laravel-5-fundamentals/episodes/3
 */
 
+
+
 Route::get('/', function () {
-    return view('welcome');
+        return view('welcome');
 });
 
 // Password reset link request routes...
@@ -56,5 +58,16 @@ Route::controllers([
 //Route::post('login', array('uses' => 'HomeController@doLogin'));
 
 Route::get('tags/{tags}', 'TagsController@show');
-Route::get('likes', 'LikesController@myLikes');
-Route::get('likes/{id}','LikesController@likeContent');
+
+Route::get('likes', 'LikesController@myLikes'); //returns your likes page
+Route::get('likes/{id}','LikesController@likeContent'); //returns likes page with content
+Route::post('likes','CommentsController@addComments'); //submits comment
+
+Route::get('unlike/{id}', 'LikesController@unlike');
+
+Route::get('myIdeas', 'MyIdeasController@index');
+Route::get('myIdeas/{id}', 'MyIdeasController@ideaContent');
+Route::post('myIdeas','CommentsController@addOwnComments');
+Route::get('myIdeas/delete/{id}','MyIdeasController@delete');
+
+//Route::get('profile', 'P')
