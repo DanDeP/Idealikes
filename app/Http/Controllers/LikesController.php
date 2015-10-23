@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
 use App\Ideas;
 use App\Likes;
 use App\Users;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class LikesController extends Controller
 {
@@ -53,14 +55,34 @@ class LikesController extends Controller
 
     }
 
+    /**
+     * This method gets all the ideas you liked and displays them in
+     * a list in the left panel of the likes page
+     * @return \Illuminate\View\View
+     */
     public function myLikes(){
+
         $likes = Likes::getLikes();
         return view('Likes.index',compact('likes'));
     }
 
+    /**
+     * This method gets all the ideas you liked, and shows the content
+     * of the idea if one of them is clicked.
+     * @param $idea (idea_id)
+     * @return \Illuminate\View\View
+     */
     public function likeContent($idea){
         $likes = Likes::getLikes();
         $ideaContent = Likes::getContent($idea);
-        return view('Likes.index',compact('likes','ideaContent'));
+        $allComments = Comments::getAllComments($idea);
+        $ideaView = Likes::getIdeaViews($idea);
+        $allTimeLikes = Likes::getAllLikes($idea);
+        return view('Likes.index',compact('likes','ideaContent','allComments','ideaView','allTimeLikes'));
+    }
+
+    public function unlike($idea){
+            Likes::unlike($idea);
+        return redirect('/likes');
     }
 }

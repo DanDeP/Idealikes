@@ -35,7 +35,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next)
     {
         if ($this->auth->check()) { //similar to Auth::check(), this checks to see if user is signed in
-            return redirect('/ideas');
+            return redirect('/rate');
         }
 
         return $next($request);

@@ -1,4 +1,30 @@
 body {
-  padding-top: 40px; }
+  padding-top: 10px;
+  background-color: #E0E0E0; }
+
+.nav.navbar-nav li a.try {
+  color: #FFCC00; }
+
+.centerit {
+  margin: auto;
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px; }
+
+.liked {
+  color: black; }
+
+.sidebar {
+  float: left;
+  width: 33%;
+  min-height: 400px; }
+
+.sidebar li {
+  list-style-type: none; }
+
+.rightbar {
+  float: right;
+  width: 66%;
+  min-height: 400px; }
 
 /*# sourceMappingURL=app.css.map */

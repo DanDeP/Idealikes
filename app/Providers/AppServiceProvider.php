@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Ideas;
 use App\Tag;
+use App\Users;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
             //$tags = Tag::all()->get();
 
             $view->with('latest', Ideas::latest()->first())
-                 ->with('categories', Tag::orderBy('name')->get());
+                 ->with('categories', Tag::orderBy('name')->get())
+                 ->with('currentUser', Users::get());
         });
     }
 

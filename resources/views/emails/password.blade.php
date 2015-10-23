@@ -1,7 +1,1 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Dan
- * Date: 9/20/2015
- * Time: 1:07 PM
- */
+Click here to reset your password: {{ url('password/reset/'.$token) }}

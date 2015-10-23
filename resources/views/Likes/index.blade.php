@@ -29,10 +29,12 @@
                 <hr/>
                 <ul>
                     @foreach($likes as $like)
-                        <li><a href="/likes/{{$like->id}}">{{ $like->ideaname }}</a></li>
+                        <li><a href="/likes/{{$like->id}}">{{ $like->ideaname }}</a>
+                            <a href="/unlike/{{$like->id}}" style="float:right;" class="btn btn-default">Unlike</a></li>
                         <br/>
                     @endforeach
                 </ul>
+                {!! $likes->render() !!}
             </div>
             <div class="rightbar">
                 @if(isset($ideaContent))
@@ -47,7 +49,8 @@
                         <p>{{$comment->comment}}</p>
                     @endforeach
 
-
+                    {!! $allComments->render() !!}
+                    <br/>
                     {!! Form::textarea('comments', null, array('required' => 'required','size' => '80x5')   ) !!}
                 <br/>
                     {!! Form::submit('Submit Comment',array('class' => 'btn btn-primary','name'=>'action')) !!}
@@ -57,8 +60,10 @@
             </div>
         </div>
         <div class="panel-footer">
-            <span>Views:{{$ideaView}}</span>
-            <span>All Time Likes:{{$allTimeLikes}}</span>
+            @if(isset($ideaView))
+                <span>Views:{{$ideaView}}</span>
+                <span>All Time Likes:{{$allTimeLikes}}</span>
+            @endif
         </div>
     </div>
 @stop

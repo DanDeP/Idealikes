@@ -12,6 +12,7 @@ use App\Http\Requests\IdeaRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class IdeasController extends Controller
 {
@@ -30,7 +31,8 @@ class IdeasController extends Controller
 //      $ideas = Ideas::latest()->get();
         $unratedIdeas = Users::getUnratedIdea();
 
-        return view('Ideas.index')->with('unratedIdeas',$unratedIdeas);
+        return Redirect::to('rate');
+        //return view('Ideas.index')->with('unratedIdeas',$unratedIdeas);
     }
 
     /**
@@ -76,7 +78,7 @@ class IdeasController extends Controller
         //\Session::flash('flash_message','Your idea has been submitted!');//could do these or, what it shows in the return
         //\Session::flash('flash_message_important',true);
 
-        return redirect('rate')->with([ //with assumes flash message
+        return redirect('myIdeas')->with([ //with assumes flash message
             'flash_message'=>'Your idea has been submitted!',
             //  'flash_message_important'=> true
         ]);
@@ -108,7 +110,7 @@ class IdeasController extends Controller
 
         $this->syncTags($idea, $request->input('tag_list'));
 
-        return redirect('rate');
+        return redirect('myIdeas');
     }
 
     /**

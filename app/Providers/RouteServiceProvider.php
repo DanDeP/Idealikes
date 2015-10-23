@@ -27,6 +27,13 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         $router->model('ideas', 'App\Ideas');
+
+        $router->bind('tags',function($name)
+        {
+            return \App\Tag::where('name',$name)->firstOrFail();
+        });
+
+        //$router->model('tags','App\Tag')
     }
 
     /**

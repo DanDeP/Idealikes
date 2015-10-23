@@ -16,8 +16,9 @@
         <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/rate">Ideas</a></li>
-                <li><a href="/likes">Likes</a></li>
+                <li><a class="try"> Welcome  {!! Auth::user()->username !!}</a></li>
+                <li class="active"><a href="/rate">New Ideas</a></li>
+                <li><a href="/likes">Liked Ideas</a></li>
             </ul>
 
           <!--  <ul class="nav navbar-nav">      This will no longer be apart of the nav bar. Will need for the likes view
@@ -32,10 +33,14 @@
             </ul>-->
 
             <ul class="nav navbar-nav navbar-right">
-                    <li><a class="try"> Welcome  {!! Auth::user()->username !!}</a></li>
-                    <li @if (Request::is('auth/login/post*')) class="active" @endif>
-                        <a href="/auth/logout">Logout</a>
-                    </li>
+                <li><a href="{{URL::to('messages')}}">Messages @include('messenger.unread-count')</a></li>
+                <li><a href="{{URL::to('messages/create')}}">New Message</a></li>
+                <li><a href="/profile">My Profile</a></li>
+                <li><a href="/myIdeas">My Ideas</a></li>
+                <li><a href="/ideas/create">Submit Idea</a></li>
+                <li @if (Request::is('auth/login/post*')) class="active" @endif>
+                    <a href="/auth/logout">Logout</a>
+                </li>
 
             </ul>
             <!--<ul class="nav navbar-nav navbar-right">

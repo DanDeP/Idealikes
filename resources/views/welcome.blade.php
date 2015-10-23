@@ -37,6 +37,7 @@
     <body>
         <div class="container">
             <div class="content">
+                <img src="{{URL::asset('img/lightbulb.png')}}" />
                 <div class="title">IdeaLikes</div>
                 <h1><a href="/auth/register">Register</a> |</h1><h1> <a href="/auth/login">Login</a></h1>
 

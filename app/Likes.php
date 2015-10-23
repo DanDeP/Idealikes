@@ -46,17 +46,46 @@ class Likes extends Model
                     ->where('user_id', Auth::id())
                     ->where('is_liked','!=','0');
             })
-            ->get();
+            ->paginate(10);
 
         return $myLikes;
     }
 
+    /**
+     * This method finds the idea with the particular like id
+     * @param $idea
+     * @return idea id
+     */
     public static function getContent($idea){
         return Ideas::find($idea);
-      /*  $ideaContent = DB::table('ideas')
-            ->select('ideas.id','ideas.ideaname','ideas.idea')
-            ->where ('ideas.id','==',$idea)
-            ->get();
-        return $ideaContent;*/
+    }
+
+    /**
+     * returns the number of views by counting how many times it appears in the likes table
+     * @param $idea (idea_id)
+     * @return mixed
+     */
+    public static function getIdeaViews($idea){
+            $views = DB::table('likes')->where('idea_id', $idea)->count();
+        return $views;
+    }
+
+    /**
+     * gets all ideas that the user has liked
+     * @param $idea (idea_id)
+     * @return mixed
+     */
+    public static function getAllLikes($idea){
+        $allLikes = DB::table('likes')
+            ->where('idea_id', $idea)
+            ->where('is_disliked', '==', '0')
+            ->count();
+        return $allLikes;
+    }
+
+    public static function unlike($idea){
+        DB::table('likes')
+            ->where('idea_id',$idea)
+            ->update(['is_liked'=>0,'is_disliked'=>1]);
     }
 }

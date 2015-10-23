@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Ideas extends Model
 {
@@ -43,5 +44,9 @@ class Ideas extends Model
     public function getTagListAttribute()
     {
         return $this->tags->lists('id')->all();
+    }
+
+    public static function deleteIdea($ideaid){
+        DB::table('ideas')->where('id',$ideaid)->delete();
     }
 }
