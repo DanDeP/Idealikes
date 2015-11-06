@@ -5,7 +5,7 @@
         <div class="centerit">
             <h1>Username: {{$user->username}}</h1>
             <h3>About Me: </h3>
-
+            <a href="/messages/create/{{$user->id}}" class="btn btn-default">Send Message</a>
         </div>
     @else
         <div class="centerit">
