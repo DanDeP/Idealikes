@@ -7,9 +7,7 @@
 
         @foreach($thread->messages as $message)
             <div class="media">
-                <a class="pull-left" href="#">
-                    <img src="//www.gravatar.com/avatar/{!! md5($message->user->email) !!}?s=64" alt="{!! $message->user->name !!}" class="img-circle">
-                </a>
+                    <img class="pull-left" src="{{URL::asset('img/lightbulbidealitsmall.png')}}" >
                 <div class="media-body">
                     <h5 class="media-heading">{!! $message->user->name !!}</h5>
                     <p>{!! $message->body !!}</p>
@@ -28,7 +26,7 @@
         @if($users->count() > 0)
             <div class="checkbox">
                 @foreach($users as $user)
-                    <label title="{!! $user->name !!}"><input type="checkbox" name="recipients[]" value="{!! $user->id !!}">{!! $user->name !!}</label>
+                    {{--<label title="{!! $user->name !!}"><input type="checkbox" name="recipients[]" value="{!! $user->id !!}">{!! $user->name !!}</label>--}}
                 @endforeach
             </div>
             @endif
